@@ -1,6 +1,6 @@
 img{
   height: 70px;
-  object-fit: c;
+  object-fit: cover;
 }
 
 .minor{
