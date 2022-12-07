@@ -1,4 +1,5 @@
 <?php
+require './class/category.php';
 
 class Movie {
 
@@ -15,9 +16,9 @@ class Movie {
    * @param String $pic
    * @param Number $age
    * @param String $country
-   * @param String $category
+   * @param Adress $category
    */
-  public function __construct($_title,$_protagonist,$_age,$_country,$_category)
+  public function __construct($_title,$_protagonist,$_age,$_country, Category $_category)
   {
     $this -> title = $_title;
     $this -> protagonist = $_protagonist;
@@ -40,19 +41,23 @@ class Movie {
     $this -> pic = $_pic;
   }
 
-
-
 };
 
-$scream = new Movie('Scream','GhostFace',18,'Uk','Horror');
-$harryPotter = new Movie('Harry Potter','Daniel Radcliffe',14,'Uk','Fantasy');
+$scream = new Movie('Scream','GhostFace',18,'Uk',new Category('Horror','Thriller'));
+
+$harryPotter = new Movie('Harry Potter','Daniel Radcliffe',14,'Uk',new Category('Fantasy','Family'));
+
+$shrek = new Movie('Shrek','Shrek',10,'Uk',new Category('Comedy','Cartoon'));
+
+var_dump($scream);
 
 $scream -> crateImg('https://m.media-amazon.com/images/I/41003ngClfL._SY445_.jpg');
 $harryPotter -> crateImg('https://m.media-amazon.com/images/I/81Ta2C1GeBS._SY445_.jpg');
+$shrek -> crateImg('https://pad.mymovies.it/filmclub/2001/05/033/locandina.jpg');
 
 // var_dump($scream,$harryPotter);
 
-$movies = [$scream , $harryPotter];
+$movies = [$scream , $harryPotter,$shrek];
 
 ?>
 
@@ -95,7 +100,7 @@ $movies = [$scream , $harryPotter];
        <td><img src="<?php echo $movie -> pic ?>" alt=""></td>
        <td><div class="<?php echo $movie -> ageVisible() ?>" ></div></td>
        <td><?php echo $movie -> country ?></td>
-       <td><?php echo $movie -> category ?></td>
+       <td><?php echo $movie -> category ->  secondType .',' ; echo $movie -> category ->  type ?></td>
       </tr>
       <?php endforeach; ?>
   </tbody>
