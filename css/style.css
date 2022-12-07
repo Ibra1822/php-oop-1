@@ -1,0 +1,18 @@
+img{
+  height: 70px;
+  object-fit: cover;
+}
+
+.minor{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.adult{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: red;
+}
