@@ -20,34 +20,28 @@ require './class/Movie.php';
 </head>
 <body>
 <div class="container text-center" >
-  <h1 class="text-primary text-decoration-underline">LIST MOVIES</h1>
+  <h1>LIST MOVIES</h1>
 </div>
 
-<div class="container">
-  <table class="table table-primary text-primary ">
-  <thead>
-    <tr>
-      <th scope="col">Titolo</th>
-      <th scope="col">Protagonista</th>
-      <th scope="col">Immagine</th>
-      <th scope="col">Età</th>
-      <th scope="col">Paese</th>
-      <th scope="col">Categoria</th>
-    </tr>
-  </thead>
-  <tbody class="table-group-divider">
-    <?php foreach($movies as $movie): ?>
-      <tr>
-       <td><?php echo $movie -> title ?></td>
-       <td><?php echo $movie -> protagonist ?></td>
-       <td><img src="<?php echo $movie -> pic ?>" alt=""></td>
-       <td><div class="<?php echo $movie -> ageVisible() ?>" ></div></td>
-       <td><?php echo $movie -> country ?></td>
-       <td><?php echo $movie -> category ->  secondType .',' ; echo $movie -> category ->  type ?></td>
-      </tr>
-      <?php endforeach; ?>
-  </tbody>
-</table>
+<div class="container ib-cont">
+
+<?php foreach($movies as $movie): ?>
+<div class="ib-card">
+
+<div class="cont-img">
+  <img src="<?php echo $movie -> pic ?>" alt="">
+</div>
+<div class="cont-text">
+  <h2><?php echo $movie -> title ?></h2>
+  <h2><?php echo $movie -> protagonist ?></h2>
+  <div class="<?php echo $movie -> ageVisible() ?>"></div>
+  <p><?php echo $movie -> country ?></p>
+  <h3><?php echo $movie -> category ->  secondType .',' ; echo $movie -> category ->  type ?></h3>
+</div>
+
+</div>
+
+<?php endforeach; ?>
 
 </div>
 
